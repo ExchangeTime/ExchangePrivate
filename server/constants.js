@@ -19,13 +19,13 @@ exports.share = {
    emailVerificationEnabled: 'disabled', //'disabled' // !!! WARNING !!! DANGER !!! DO NOT CHANGE IT IN PRODUCTION !!! FOR TESTS ONLY !!!
    pinVerificationEnabled: 'disabled', //'disabled'
    
-   TRADE_COMISSION: 0.001,
+   TRADE_COMISSION: 0.2,
    DUST_VOLUME: 0.000001,
    
    my_portSSL: 40443,
    
-   TRADE_MAIN_COIN: "Marycoin",
-   TRADE_MAIN_COIN_TICKER: "MC",
+   TRADE_MAIN_COIN: "Bitcoin",
+   TRADE_MAIN_COIN_TICKER: "BTC",
    TRADE_DEFAULT_PAIR: "Litecoin"
 };
 
