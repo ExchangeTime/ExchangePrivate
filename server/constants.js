@@ -14,8 +14,8 @@ exports.DEBUG_LOG = true;
 
 exports.share = {
    tradeEnabled: true,
-   withdrawEnabled: false,
-   recaptchaEnabled: false,
+   withdrawEnabled: true,
+   recaptchaEnabled: true,
    emailVerificationEnabled: 'disabled', //'disabled' // !!! WARNING !!! DANGER !!! DO NOT CHANGE IT IN PRODUCTION !!! FOR TESTS ONLY !!!
    pinVerificationEnabled: 'disabled', //'disabled'
    
@@ -26,14 +26,14 @@ exports.share = {
    
    TRADE_MAIN_COIN: "Bitcoin",
    TRADE_MAIN_COIN_TICKER: "BTC",
-   TRADE_DEFAULT_PAIR: "Litecoin"
+   TRADE_DEFAULT_PAIR: "Sharedexcoin"
 };
 
 exports.my_port = process.env.PORT || 40080;
 
 exports.SESSION_TIME = 3600*1000; //one hour
 
-exports.recaptcha_pub_key = "6LeX5SQUAAAAAKTieM68Sz4MECO6kJXsSR7_sGP1";
+exports.recaptcha_pub_key = "6LcPc3gUAAAAAHXCONQvwUZ2d41fytLgRO07ErJD";
 const MAX_IP_CONNECTIONS = 100;
 
 const MAX_USER_WITHDRAW = 100; //Percentage from trade deposit
