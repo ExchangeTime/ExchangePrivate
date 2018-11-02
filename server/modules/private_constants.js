@@ -6,7 +6,7 @@ exports.SSL_KEY = '../ssl_certificates/privkey.pem'; //change to your ssl certif
 exports.SSL_CERT = '../ssl_certificates/fullchain.pem'; //change to your ssl certificates fullchain
 
 exports.walletspassphrase = {
-    'MC' : 'LONG_RANDOM_STRING2',
+    'AEG' : 'randomlongstringSAMEASINFILEprivateconstants',
     'BTC' : 'LONG_RANDOM_STRING3',
     'DOGE' : 'LONG_RANDOM_STRING4'
 };
