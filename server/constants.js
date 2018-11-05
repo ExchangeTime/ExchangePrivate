@@ -19,8 +19,8 @@ exports.share = {
    emailVerificationEnabled: 'disabled', //'disabled' // !!! WARNING !!! DANGER !!! DO NOT CHANGE IT IN PRODUCTION !!! FOR TESTS ONLY !!!
    pinVerificationEnabled: 'disabled', //'disabled'
    
-   TRADE_COMISSION: 0.2,
-   DUST_VOLUME: 0.000001,
+   TRADE_COMISSION: 0.002,
+   DUST_VOLUME: 0.0000001,
    
    my_portSSL: 40443,
    
