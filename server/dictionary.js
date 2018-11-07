@@ -46,6 +46,6 @@ exports.object = {
         'Forgot your password?' : ['Forgot your password?', 'Забыли пароль?'],
         'New to OpenTrade?' : ['New to OpenTrade?', 'Еще не зарегистрированы на OpenTrade?'],
         'Sign up now!' : ['Sign up now!', 'Зарегистрироваться сейчас!'],
-        'OpenTrade - Open Source Cryptocurrency Exchange' : ['OpenTrade - Open Source Cryptocurrency Exchange', 'OpenTrade - Биржа криптовалют с открытым кодом']
+        'AbacusBit - Cryptocurrency Exchange' : ['AbacusBit - Cryptocurrency Exchange', 'AbacusBit']
     }
 };
