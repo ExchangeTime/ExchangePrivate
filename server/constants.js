@@ -1,12 +1,12 @@
 'use strict';
 
-const SUPPORT_EMAIL = 'support@email.com';
-const NOREPLY_EMAIL = 'no-reply@email.com';
-const DOMAIN = 'trade.multicoins.org';
+const SUPPORT_EMAIL = 'abacusbit@gmail.com';
+const NOREPLY_EMAIL = 'abacusbit@gmail.com';
+const DOMAIN = 'https://Abacusbit.io';
 
-const MAILER_NAME = 'OpenTrade Mailer';
-const START_MESSAGE = 'OpenTrade started!';
-const OPENTRADE = "OpenTrade";
+const MAILER_NAME = 'AbacusBit Mailer';
+const START_MESSAGE = 'AbacusBit started!';
+const OPENTRADE = "AbacusBit";
 
 exports.ALLOW_EMAIL_CHANGING = true;
 
@@ -20,7 +20,7 @@ exports.share = {
    pinVerificationEnabled: 'disabled', //'disabled'
    
    TRADE_COMISSION: 0.002,
-   DUST_VOLUME: 0.0000001,
+   DUST_VOLUME: 0.00000001,
    
    my_portSSL: 40443,
    
