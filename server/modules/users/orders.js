@@ -583,7 +583,7 @@ exports.ProcessExchange = function(coin)
             for (var i=0; i<g_constants.DONATORS.length; i++)
             {
                 if (g_constants.DONATORS[i].percent && g_constants.DONATORS[i].userID)
-                    exports.AddBalance(g_constants.DONATORS[i].userID, (donatorsFee*(g_constants.DONATORS[i].percent*1-1)) / 100.0, price_pair, () => {}, buerID, 'From OpenTrade comission');
+                    exports.AddBalance(g_constants.DONATORS[i].userID, (donatorsFee*(g_constants.DONATORS[i].percent*1-1)) / 100.0, price_pair, () => {}, buerID, 'From AbacusBit comission');
             }
         });
     }
