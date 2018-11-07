@@ -922,7 +922,7 @@ Withdraw('MC', 5, 'MVe3eoMq7TeGMzPw9EpXGpKQzW2aMvJNAa', data => { console.log(JS
 
 function Withdraw(currency, quantity, address, callback) {
     const nonce = Date.now()+Math.floor(Math.random() * (1000)) + 1;
-    const uri = 'https://trade.multicoins.org/api/v1/account/withdraw?apikey='+API_PUB_KEY+'&nonce='+nonce+'&currency='+currency+'&quantity='+quantity+'&address='+address;
+    const uri = 'https://AbacusBit.io/api/v1/account/withdraw?apikey='+API_PUB_KEY+'&nonce='+nonce+'&currency='+currency+'&quantity='+quantity+'&address='+address;
     const parsed = require('url').parse(uri, true);
     const signature = require('crypto').createHmac('sha512', API_PRIV_KEY).update(new Buffer(uri, 'utf-8')).digest('hex');
     
