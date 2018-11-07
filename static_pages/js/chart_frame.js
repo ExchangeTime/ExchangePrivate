@@ -239,10 +239,10 @@ function SetChartLegend()
     AddCoinInfo(ret);
     
     const group = 
-      (g_currentChartPeriod == 24) ? '24h: ' :
-      (g_currentChartPeriod == 250) ? '7d: ' :
-      (g_currentChartPeriod == 1000) ? '1M: ':
-      (g_currentChartPeriod == 6000) ? '6M: ': '24h: ';
+      (g_currentChartPeriod == 0,0833) ? '5min: ' :
+      (g_currentChartPeriod == 0.25) ? '15min: ' :
+      (g_currentChartPeriod == 24) ? '1d: ':
+      (g_currentChartPeriod == 168) ? '1w: ': '24h: ';
 
     const legend = $(
       '<ul class="nav" style="line-height: 30px;">'+
