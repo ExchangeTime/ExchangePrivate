@@ -2,7 +2,7 @@
 
 const SUPPORT_EMAIL = 'abacusbit@gmail.com';
 const NOREPLY_EMAIL = 'abacusbit@gmail.com';
-const DOMAIN = 'https://Abacusbit.io';
+const DOMAIN = 'Abacusbit.io';
 
 const MAILER_NAME = 'AbacusBit Mailer';
 const START_MESSAGE = 'AbacusBit started!';
@@ -22,14 +22,14 @@ exports.share = {
    TRADE_COMISSION: 0.002,
    DUST_VOLUME: 0.00000001,
    
-   my_portSSL: 40443,
+   my_portSSL: 443,
    
    TRADE_MAIN_COIN: "Bitcoin",
    TRADE_MAIN_COIN_TICKER: "BTC",
    TRADE_DEFAULT_PAIR: "MasterCoin"
 };
 
-exports.my_port = process.env.PORT || 40080;
+exports.my_port = process.env.PORT || 80;
 
 exports.SESSION_TIME = 3600*1000; //one hour
 
