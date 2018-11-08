@@ -29,7 +29,7 @@ exports.share = {
    TRADE_DEFAULT_PAIR: "MasterCoin"
 };
 
-exports.my_port = process.env.PORT || 80;
+exports.my_port = process.env.PORT || 40080;
 
 exports.SESSION_TIME = 3600*1000; //one hour
 
