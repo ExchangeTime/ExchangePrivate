@@ -15,7 +15,7 @@ exports.DEBUG_LOG = true;
 exports.share = {
    tradeEnabled: true,
    withdrawEnabled: true,
-   recaptchaEnabled: true,
+   recaptchaEnabled: false,
    emailVerificationEnabled: 'disabled', //'disabled' // !!! WARNING !!! DANGER !!! DO NOT CHANGE IT IN PRODUCTION !!! FOR TESTS ONLY !!!
    pinVerificationEnabled: 'disabled', //'disabled'
    
