@@ -33,7 +33,7 @@ exports.my_port = process.env.PORT || 80;
 
 exports.SESSION_TIME = 3600*1000; //one hour
 
-exports.recaptcha_pub_key = "6Lcmc3gUAAAAANyqQxYifSlfIqRcYqd-EZjvS1w0";
+exports.recaptcha_pub_key = "6LeGhXkUAAAAAJATlVowcDCZG3-sGnwP8iT5qyKJ";
 const MAX_IP_CONNECTIONS = 100;
 
 const MAX_USER_WITHDRAW = 100; //Percentage from trade deposit
