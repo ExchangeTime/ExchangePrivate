@@ -1,7 +1,7 @@
 'use strict';
 
 const SUPPORT_EMAIL = 'abacusbit@gmail.com';
-const NOREPLY_EMAIL = 'abacusbit@gmail.com';
+const NOREPLY_EMAIL = 'norply@abacusbit.io';
 const DOMAIN = 'Abacusbit.io';
 
 const MAILER_NAME = 'AbacusBit Mailer';
