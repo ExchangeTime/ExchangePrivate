@@ -1,7 +1,7 @@
 'use strict';
 
-const SUPPORT_EMAIL = 'abacusbit@gmail.com';
-const NOREPLY_EMAIL = 'norply@abacusbit.io';
+const SUPPORT_EMAIL = 'admin@abacusbit.io';
+const NOREPLY_EMAIL = 'admin@abacusbit.ioo';
 const DOMAIN = 'Abacusbit.io';
 
 const MAILER_NAME = 'AbacusBit Mailer';
@@ -16,8 +16,8 @@ exports.share = {
    tradeEnabled: true,
    withdrawEnabled: true,
    recaptchaEnabled: true,
-   emailVerificationEnabled: 'disabled', //'disabled' // !!! WARNING !!! DANGER !!! DO NOT CHANGE IT IN PRODUCTION !!! FOR TESTS ONLY !!!
-   pinVerificationEnabled: 'disabled', //'disabled'
+   emailVerificationEnabled: 'enabled', //'disabled' // !!! WARNING !!! DANGER !!! DO NOT CHANGE IT IN PRODUCTION !!! FOR TESTS ONLY !!!
+   pinVerificationEnabled: 'enabled', //'disabled'
    
    TRADE_COMISSION: 0.002,
    DUST_VOLUME: 0.00000001,
