@@ -259,6 +259,80 @@ exports.onGetMarketSummary = function(req, res)
 
 exports.onGetMarketHistory = function(req, res)
 {
+  exports.onGetCharts = function(req, res)
+{
+    const dataParsed = url.parse(req.url);
+    if (!dataParsed || !dataParsed.query)
+        return onError(req, res, 'Bad request');
+ 
+    const queryStr = querystring.parse(dataParsed.query);
+    if (!queryStr.market)
+        return onError(req, res, 'Bad request. Parameter "market" not found');
+ 
+    const data = queryStr.market.split('-');
+    if (!data || !data.length || data.length != 2)
+        return  onError(req, res, 'Bad request. Parameter "market" is invalid');
+ 
+ 
+    g_constants.dbTables['coins'].selectAll('name, ticker, info', 'ticker="'+data[1]+'"', '', (err, rows) => {
+        try
+        {
+            if (err || !rows) throw new Error(err && err.message ? err.message : 'unknown database error');
+            if (!rows.length) throw new Error('ticker '+data[1]+' not found');
+ 
+            const COIN = rows[0];
+            const WHERE = 'coin="'+escape(COIN.name)+'"';
+           
+            g_constants.dbTables['history'].selectAll('ROWID AS id, *', WHERE, 'ORDER BY time*1 DESC LIMIT 200', (err, rows) => {
+                if (err || !rows)
+                    return onError(req, res, err && err.message ? err.message : 'unknown database error');
+ 
+                let retData = [];
+               
+                for (var i=(rows.length - 1); i>0; i--)
+                {
+           if (rows[i - 1].fromBuyerToSeller/rows[i - 1].fromSellerToBuyer > rows[i - 1].price) {
+                    const data = ([
+                        rows[i].time*1,//time.toUTCString(),
+                        rows[i].fromBuyerToSeller/rows[i].fromSellerToBuyer*1,
+                        rows[i - 1].fromBuyerToSeller/rows[i - 1].fromSellerToBuyer*1,
+                        rows[i - 1].price*1,
+                        rows[i - 1].fromBuyerToSeller/rows[i - 1].fromSellerToBuyer*1,
+            rows[i - 1].fromSellerToBuyer*1
+                    ]);
+                    retData.push(data);
+            }
+           else if (rows[i - 1].fromBuyerToSeller/rows[i - 1].fromSellerToBuyer == rows[i - 1].price) {
+                    const data = ([
+                        rows[i].time*1,//time.toUTCString(),
+                        rows[i].fromBuyerToSeller/rows[i].fromSellerToBuyer*1,
+                        rows[i - 1].price*1,
+                        rows[i - 1].price*1,
+                        rows[i - 1].fromBuyerToSeller/rows[i - 1].fromSellerToBuyer*1,
+            rows[i - 1].fromSellerToBuyer*1
+                    ]);
+                    retData.push(data);
+            }
+           else {
+                    const data = ([
+                        rows[i].time*1,//time.toUTCString(),
+                        rows[i].fromBuyerToSeller/rows[i].fromSellerToBuyer*1,
+                        rows[i - 1].price*1,
+                        rows[i - 1].fromBuyerToSeller/rows[i - 1].fromSellerToBuyer*1,
+                        rows[i - 1].fromBuyerToSeller/rows[i - 1].fromSellerToBuyer*1,
+            rows[i - 1].fromSellerToBuyer*1
+                    ]);
+                    retData.push(data);
+            }
+                }
+                return onChartsSuccess(req, res, retData);
+            });
+        }
+        catch(e) {
+            return onError(req, res, e.message);
+        }
+    });
+}
     const dataParsed = url.parse(req.url);
     if (!dataParsed || !dataParsed.query)
         return onError(req, res, 'Bad request');
