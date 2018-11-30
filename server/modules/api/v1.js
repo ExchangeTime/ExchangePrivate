@@ -29,7 +29,10 @@ function onSuccess(req, res, data)
 {
     utils.renderJSON(req, res, {success: true, message: "", result: data});
 }
-
+function onChartsSuccess(req, res, data)
+{
+    utils.renderJSON(req, res, data);
+}
 function GetCache(method)
 {
     if (!g_Cache[method] || !g_Cache[method]['data'] || !g_Cache[method]['time'] || !g_Cache[method]['timeCached'])
