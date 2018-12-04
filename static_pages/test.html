@@ -1,7 +1,5 @@
-
 <html>
     <head>
-
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <meta charset="utf-8" />
@@ -10,191 +8,44 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link href="/css/styles.css" rel="stylesheet">
-<script>
-       'use strict';
-     
-	const PORT_SSL = 443;
-	const MAIN_COIN = 'Bitcoin';
-	const DEFAULT_PAIR = 'Bulwark';
-     
-	const TRADE_COMISSION = 0.002;
-     
-</script>
-<script src="/js/utils.js"></script>
-<style>.highcharts-point-up {}</style>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://code.highcharts.com/stock/highstock.js"></script>
-<script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
-<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+
     <title></title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <script>
+      'use strict';
+    
+      const PORT_SSL = 40443;
+      const MAIN_COIN = 'Marycoin';
+      const DEFAULT_PAIR = 'Litecoin';
+    
+    </script>
+    <script src='/js/utils.js'></script>
     </head>
-    <body style='background: none;'>
-        <div class='container chart'>
+    <script>
+        
+    </script>
+    <body>
+        <div class='container'>
             <div class='row'>
-                <div class="col-md-12 p-0">
-                  <div class='container'>
-                    <div class='row'>
-                      <div class='col-md-12' style="padding:0;">
-                        <small>
-                        <div id='chart_legend'></div>
-                        </small>
-<div id="container" style="height: 340px; width: 100%;"></div>
-<script>
- 	
- 	//var link = document.location.href;
- 	var link = "GRN-"+coinsymbol;
-
- 	var coinsymbol = link.split("-").pop();
- 	
- 	 g_CurrentPair = DEFAULT_PAIR
- 	const currentPair = storage.getItemS('CurrentPair');
-     if (currentPair != null)
-     g_CurrentPair = currentPair.value;
- 	
- 	const cntObject = storage.getItem('coinNameToTicker');
-     const coinNameToTicker = cntObject.value; 
-   coinsymbol = coinNameToTicker[g_CurrentPair].ticker
- 	
- 	 
- 	//document.getElementById("coinsymbolid").innerHTML = 'Graph - GRN/' + coinsymbol;
-
-$.getJSON('/api/v1/public/getcharts?market=GRN-'+coinsymbol, function (data) {
-
-    // split the data set into trading and volume
-    var trading = [],
-        volume = [],
-        dataLength = data.length,
-        // set the allowed units for data grouping
-        groupingUnits = [[
-            'hour',                         // unit name
-            [1]                             // allowed multiples
-        ], [
-            'day',
-            [1, 7]
-        ]],
-
-        i = 0;
-
-    for (i; i < dataLength; i += 1) {
-        trading.push([
-            data[i][0], // the date
-            data[i][1], // open
-            data[i][2], // high
-            data[i][3], // low
-            data[i][4] // close
-        ]);
-
-        volume.push([
-            data[i][0], // the date
-            data[i][5] // the volume
-        ]);
-    }
-
-
-    // create the chart
-    Highcharts.stockChart('container', {
-        title: {
-            text: null
-        },
-         chart: {
-		backgroundColor: 'none'
-	 },
-         rangeSelector: {
- 		 selected: 2,
-             buttons: [{
-                 type: 'hour',
-                 count: 1,
-                 text: '1h'
-             }, {
-                 type: 'day',
-                 count: 1,
-                 text: '1D'
-             }, {
-                 type: 'day',
-                 count: 7,
-                 text: '7D'
-             }, {
-                 type: 'month',
-                 count: 1,
-                 text: '1M'
-             }, {
-                 type: 'all',
-                 count: 1,
-                 text: 'All'
-             }],
-             selected: 2,
-             inputEnabled: false
-         },
- 		legend: {
-                     enabled: false
-         },
- 		
- 		exporting: {
-                     enabled: false
-         },
- 		plotOptions: {
-			candlestick: {	
-  			lineColor: '#E75162',    		
- 	    		upLineColor: '#5BB789',
- 	    		upColor: '#5BB789',
- 	    		color: '#E75162'
-         	}
-     	},
-        yAxis: [{
-            height: '80%',
-            lineWidth: 1,
-            resize: {
-                enabled: true
-            }
-        }, {
-
-            top: '85%',
-            height: '15%',
-            offset: 0,
-            lineWidth: 1
-        }],
-
-        tooltip: {
-            split: true
-        },
-        series: [{
-            type: 'candlestick',
-            name: coinsymbol,
-            data: trading,
-            dataGrouping: {
-                units: groupingUnits
-            }
-        }, {
-            type: 'column',
-            name: coinsymbol+' Volume',
-            data: volume,
-            yAxis: 1,
-            dataGrouping: {
-                units: groupingUnits
-            }
-        }]
-    });
-});
-
- 	</script>
-                      </div>
-                    </div>
-                    <div class='row'>
-                      <div class='col-md-12' style="background-color: rgba(255,255,255,0.4);border-radius: 12px;">
-                        <div id='coin_info'></div>
-                      </div>
-                    </div>
+                <div class='col-md-7 p-1'>
+                  <div class="embed-responsive" style="padding-top: 2000%;">
+                    <iframe scrolling='no' class="embed-responsive-item" src='https://trade.multicoins.org/chart.html'></iframe>
                   </div>
                 </div>
                 
             </div>
         </div>
     </body>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-<script src="/js/chart_frame.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
 </html>
