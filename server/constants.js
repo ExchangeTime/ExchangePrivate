@@ -26,7 +26,7 @@ exports.share = {
    
    TRADE_MAIN_COIN: "Bitcoin",
    TRADE_MAIN_COIN_TICKER: "BTC",
-   TRADE_DEFAULT_PAIR: "MasterCoin"
+   TRADE_DEFAULT_PAIR: "Bulwark"
 };
 
 exports.my_port = process.env.PORT || 80;
