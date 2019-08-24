@@ -2,7 +2,7 @@
 
 const SUPPORT_EMAIL = 'admin@abacusbit.io';
 const NOREPLY_EMAIL = 'admin@abacusbit.ioo';
-const DOMAIN = 'Abacusbit.io';
+const DOMAIN = 'localhost';
 
 const MAILER_NAME = 'AbacusBit Mailer';
 const START_MESSAGE = 'AbacusBit started!';
